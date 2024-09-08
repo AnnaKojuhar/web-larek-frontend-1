@@ -218,12 +218,12 @@ interface IOrderResult {
 - сеттеры для установки данных класса
 
 #### Класс CardPreview
-Класс расширяет класс `CаrdCatalog` и используется для отображения карточки на главной странице.\
+Класс расширяет класс `CаrdCatalog` и используется для отображения карточки в модальном окне.\
 Данные класса:
-- _text: HTMLElement; - элемент текста
+- _description: HTMLElement; - элемент текста
 
 Методы:
-- сеттер text(value: string) - устанавливает значение _text
+- сеттер description(value: string) - устанавливает значение _text
 - setButtonText(value: boolean): void - устанавливает текст кнопки
 
 #### Класс Page 

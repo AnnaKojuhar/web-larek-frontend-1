@@ -76,15 +76,16 @@ export class CardCatalog extends Card {
 }
 
 export class CardPreview extends CardCatalog {
-    protected _text: HTMLElement;
+    protected _description: HTMLElement;
 
     constructor(container: HTMLElement, events: IEvents, actions?: ICardActions){
         super(container, events, actions)
-        this._text = ensureElement<HTMLImageElement>('.card__text', container);
+        this._description = ensureElement<HTMLImageElement>('.card__text', container);
     }
 
-    set text(value: string) {
-        this.setText(this._text, value);
+    set description
+    (value: string) {
+        this.setText(this._description, value);
     }
 
     setButtonText(value: boolean): void {
