@@ -47,12 +47,12 @@ export interface IAppState{
     hasBasket(id: string): boolean;
     addToBasket(id: string): void;
     deleteFromBasket(id: string): void;
-    clearBasket(): void;
+    cleanBasket(): void;
     getCounter(): number;
     getOrder(): IOrder;
     setOrderField(field: TInputName, value: string, formName: string): void;
     validateOrder(formName: string): boolean;
-    clearOrderData(): void;
+    cleanOrderData(): void;
 }
 
 export interface IError {

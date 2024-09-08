@@ -173,12 +173,12 @@ interface IOrderResult {
 - hasBasket(id: string): boolean; - проверяет наличие карточки в корзине
 - addToBasket(id: string): void - добавление товара в корзину
 - deleteFromBasket(id: string): void - удаление товара из корзины
-- clearBasket(): void - очистить корзину
+- cleanBasket(): void - очистить корзину
 - getBasket(): TBasket - возвращает корзину
 - getCounter(): number - возвращает количество товаров в корзине
 - setOrderField(field: TInputName, value: string, formName: string): void - устанавливает значение вводимое в полях
 - validateOrder(formName: string): void - проверяет вводимые значения
-- clearOrderData(): void - очищает данные введенные пользователем
+- cleanOrderData(): void - очищает данные введенные пользователем
 - сеттеры и геттеры для сохранения и получения данных с полей класса
 
 

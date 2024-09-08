@@ -94,7 +94,7 @@ export class AppState implements IAppState {
         this.events.emit('basket:changed');
     }
 
-    clearBasket(): void {
+    cleanBasket(): void {
         this._basket = [];
         this._totalBasket = 0;
         this.events.emit('basket:changed');
@@ -145,7 +145,7 @@ export class AppState implements IAppState {
         return Object.keys(errors).length === 0;
     }
 
-    clearOrderData(): void{
+    cleanOrderData(): void{
         this.phone = '';
         this.email = '';
         this.address = '';
