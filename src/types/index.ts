@@ -51,7 +51,8 @@ export interface IAppState{
     getCounter(): number;
     getOrder(): IOrder;
     setOrderField(field: TInputName, value: string, formName: string): void;
-    validateOrder(formName: string): boolean
+    validateOrder(formName: string): boolean;
+    clearOrderData(): void;
 }
 
 export interface IError {

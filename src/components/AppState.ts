@@ -144,4 +144,10 @@ export class AppState implements IAppState {
         this.events.emit('formErrors:change', this.formErrors);
         return Object.keys(errors).length === 0;
     }
+
+    clearOrderData(): void{
+        this.phone = '';
+        this.email = '';
+        this.address = '';
+    }
 }

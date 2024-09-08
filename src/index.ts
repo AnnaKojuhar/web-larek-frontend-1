@@ -142,6 +142,7 @@ event.on('orderUserData:submit', () => {
             content: success.render({total: appState.total})
         });
         appState.clearBasket();
+        appState.clearOrderData();
     })
     .catch(err => {
         console.error(err);
