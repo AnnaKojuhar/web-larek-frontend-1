@@ -5,7 +5,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="theme-color" content="#000000" />
 	<link rel="icon" href="/favicon.ico" />
-	<link rel="manifest" href="/manifest.json" />
 	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -209,14 +208,14 @@
 		</div>
 	</template>
 
-	<template id="order">
-		<form class="form" name="order">
+	<template id="orderDelivery">
+		<form class="form" name="orderDelivery">
 			<div class="order">
 				<div class="order__field">
 					<h2 class="modal__title">Способ оплаты</h2>
 					<div class="order__buttons">
-						<button name="card" type="button" class="button button_alt">Онлайн</button>
-						<button name="cash" type="button" class="button button_alt">При получении</button>
+						<button name="online" type="button" class="button button_alt">Онлайн</button>
+						<button name="offline" type="button" class="button button_alt">При получении</button>
 					</div>
 				</div>
 				<label class="order__field">
@@ -231,8 +230,8 @@
 		</form>
 	</template>
 
-	<template id="contacts">
-		<form class="form" name="contacts">
+	<template id="orderUserData">
+		<form class="form" name="orderUserData">
 			<div class="order">
 				<label class="order__field">
 					<span class="form__label modal__title">Email</span>

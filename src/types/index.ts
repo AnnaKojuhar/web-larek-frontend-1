@@ -1,5 +1,3 @@
-import { IEvents } from "../components/base/events";
-
 export interface ICard {
     id: string;
     description: string;
@@ -15,9 +13,7 @@ export type TCardBasket = Pick<ICard, 'id' | 'title' | 'price'>;
 
 
 export interface ICardsData {
-    items: ICard[];
-    preview: string | null;
-    events: IEvents;
+    cards: ICard[];
     getCard(cardId: string): ICard
 }
 
@@ -36,22 +32,26 @@ export type TOrderDelivery = Pick<IOrder, 'payment' | 'address'>;
 
 export type TOrderUserData = Pick<IOrder, 'email' | 'phone'>;
 
-export type TBasket = Pick<IOrder, 'total' | 'items'>
+export type FormErrors = Partial<Record<keyof IOrder, string>>;
 
-export interface IOrderData{
-    getOrder(): IOrder; 
-    setOrderDelivery(OrderDelivery: TOrderDelivery): void;
-    setOrderUserData(OrderUserData: TOrderUserData): void;
+export type TInputName = 'email' | 'phone' | 'address';
+
+export interface IAppState{
+    payment: 'online' | 'offline';
+    email: string;
+    phone: string;
+    address: string;
+    total: number;
+    basket: ICard[];
+    preview: string | null;
     hasBasket(id: string): boolean;
-    addCard(id: string): void;
-    deleteCard(id: string): void;
+    addToBasket(id: string): void;
+    deleteFromBasket(id: string): void;
     clearBasket(): void;
-    getBasket(): TBasket;
-    checkDeliveryValidation(data: Record<keyof TOrderDelivery, string>): boolean;
-    checkUserDataValidation(data: Record<keyof TOrderUserData, string>): boolean;
-    checkAddress(value: string): boolean;
-    checkEmail(value: string) : boolean;
-    checkPhone(value: string): boolean;
+    getCounter(): number;
+    getOrder(): IOrder;
+    setOrderField(field: TInputName, value: string, formName: string): void;
+    validateOrder(formName: string): boolean
 }
 
 export interface IError {
