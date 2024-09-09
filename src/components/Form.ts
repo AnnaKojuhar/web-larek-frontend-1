@@ -15,8 +15,8 @@ export class Form<T> extends Component<IFormState> {
     constructor(protected container: HTMLFormElement, protected events: IEvents) {
         super(container);
 
-        this._submit = ensureElement<HTMLButtonElement>('button[type=submit]', this.container);
-        this._errors = ensureElement<HTMLElement>('.form__errors', this.container);
+        this._submit = ensureElement<HTMLButtonElement>('button[type=submit]', container);
+        this._errors = ensureElement<HTMLElement>('.form__errors', container);
         this._formName = container.name;
 
         this.container.addEventListener('input', (e: Event) => {

@@ -1,6 +1,6 @@
 import { EventEmitter } from './components/base/events';
 import { Basket } from './components/Basket';
-import { CardBasket, CardCatalog, CardPreview } from './components/card';
+import { Card } from './components/card';
 import { CardsData } from './components/cardsData';
 import { LarekAPI } from './components/LarekApi';
 import { Modal } from './components/Modal';
@@ -23,9 +23,9 @@ const modal = new Modal(modalElement, event)
 const templateCardCatalog: HTMLTemplateElement = document.querySelector('#card-catalog');
 const templateCardPreview: HTMLTemplateElement = document.querySelector('#card-preview');
 const page = new Page(document.querySelector('.page'), event)
-const cardPreviewElement = new CardPreview(cloneTemplate(templateCardPreview), event, {onClick: () => event.emit('basket:add/remove', {cardId: appState.preview})});
 const basket = new Basket(cloneTemplate('#basket'), event);
-basket.render({selected: appState.total})
+basket.render({selected: appState.total});
+const cardPreviewElement = new Card(cloneTemplate(templateCardPreview), event, {onClick: () => event.emit('basket:add/remove', {cardId: appState.preview})});
 const orderDelivery = new OrderDelivery(cloneTemplate('#orderDelivery'), event);
 const orderUserData = new OrderUserData(cloneTemplate('#orderUserData'), event)
 
@@ -42,7 +42,7 @@ event.on('modal:close', () => {
 });
 
 event.on('Cards:changed', () => {
-    const cardsList = cardData.cards.map((card) => new CardCatalog(cloneTemplate(templateCardCatalog), event, {onClick: () => event.emit('preview:open', {cardId: card.id})}).render(card));
+    const cardsList = cardData.cards.map((card) => new Card(cloneTemplate(templateCardCatalog), event, {onClick: () => event.emit('preview:open', {cardId: card.id})}).render(card));
     page.render({ catalog: cardsList});
 })
 
@@ -53,7 +53,7 @@ event.on('preview:open', (data: { cardId: string }) => {
 event.on('card:selected', () => {
     const cardId = appState.preview;
     cardPreviewElement.setButtonText(appState.hasBasket(cardId));
-    modal.render({content: cardPreviewElement.render(cardData.getCard(cardId))})
+    modal.render({content: cardPreviewElement.render(cardData.getCard(cardId))});
 })
 
 event.on('basket:add/remove',(data: { cardId: string }) => {
@@ -69,7 +69,7 @@ event.on('basket:add/remove',(data: { cardId: string }) => {
 event.on('basket:changed', () => {
     page.render({counter: appState.getCounter()});
     const basketCardsList = appState.basket.map((card, index) => {
-        const cardBasket = new CardBasket(cloneTemplate('#card-basket'), event, {onClick: () => event.emit('basket:add/remove', {cardId: card.id})})
+        const cardBasket = new Card(cloneTemplate('#card-basket'), event, {onClick: () => event.emit('basket:add/remove', {cardId: card.id})})
         cardBasket.itemIndex = index + 1;
         return cardBasket.render(card);
     })
