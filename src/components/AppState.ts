@@ -149,5 +149,6 @@ export class AppState implements IAppState {
         this.phone = '';
         this.email = '';
         this.address = '';
+        this.payment = 'online';
     }
 }

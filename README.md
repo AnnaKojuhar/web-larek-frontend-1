@@ -247,6 +247,7 @@ interface IOrderResult {
 Методы
 - open(): void; - открывает модальное окно
 - close(): void; - удаляет контент и закрывает модальное окно;
+- handleEscUp (evt: KeyboardEvent) - закрытие попапа на клавишу Esc
 - render(data: IModalData): HTMLElement - заполняет контент и открывает модальное окно
 
 #### Класс Basket
